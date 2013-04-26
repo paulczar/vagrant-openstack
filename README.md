@@ -1,6 +1,8 @@
-=Initial Chef Server=
+Initial Chef Server
+-------------------
 
-==Chef Server==
+Chef Server
+===========
 
     vagrant up chef
     vagrant ssh chef
@@ -9,7 +11,9 @@
         chef-webui
         vagrant
 
-==Chef Client==
+Chef Client
+===========
+
     vagrant up allinone
     vagrant ssh allinone
     knife client list
@@ -19,9 +23,11 @@
 
 
 
-=Openstack=
+Openstack
+---------
 
-==Install Cookbooks==
+Install Cookbooks
+=================
 
     sudo apt-get -y install git
     git submodule update --init --recursive git@github.com:opscode-cookbooks/chef-server.git
@@ -40,7 +46,8 @@
     # sudo gem install right_aws --no-ri --no-rdoc
     sudo chef-client
 
-==check if it worked==
+check if it worked
+==================
 
 https://chef
 username: admin
