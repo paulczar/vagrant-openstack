@@ -1,8 +1,9 @@
 #!/bin/bash -x
 
-cd /tmp
+mkdir -p /vagrant/packages
+cd /vagrant/packages
 echo downloading chef-server debian package.  this may take some time...
-wget --quiet https://opscode-omnitruck-release.s3.amazonaws.com/ubuntu/12.04/x86_64/chef-server_11.0.6-1.ubuntu.12.04_amd64.deb
+wget -nc --quiet https://opscode-omnitruck-release.s3.amazonaws.com/ubuntu/12.04/x86_64/chef-server_11.0.6-1.ubuntu.12.04_amd64.deb
 dpkg -i chef-server*.deb
 chef-server-ctl reconfigure
 

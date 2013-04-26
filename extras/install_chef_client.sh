@@ -6,7 +6,7 @@ curl --silent -L http://www.opscode.com/chef/install.sh | bash
 mkdir -p /etc/chef
 cp /vagrant/.chef/chef-validator.pem /etc/chef/validation.pem
 mkdir -p /home/vagrant/.chef
-cp /vagrant/.chef/* /home/vagrant/.chef/
+cp /vagrant/.chef/*.pem /home/vagrant/.chef/
 
 cat<<CHEF > /etc/chef/client.rb
     log_level        :info

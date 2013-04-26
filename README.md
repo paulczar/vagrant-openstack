@@ -1,6 +1,12 @@
 Stand up Vagrant Boxes
 ======================
 
+Make sure cookbook submodules are loaded
+----------------------------------------
+
+    git submodule update --init --recursive git@github.com:opscode-cookbooks/chef-server.git
+
+
 Chef Server
 -----------
 
@@ -29,21 +35,9 @@ Openstack
 Install Cookbooks
 -----------------
 
-    git submodule update --init --recursive git@github.com:opscode-cookbooks/chef-server.git
+vagrant ssh allinone
+extras/install_openstack.sh
 
-    vagrant ssh chef
-
-    cd chef-cookbooks
-    knife cookbook upload -o cookbooks --all
-    knife role from file roles/*.rb
-    knife environment from file /vagrant/environment_vagrant.json
-    knife node run_list add allinone 'role[allinone]'
-    knife node edit allinone -e vi
-    exit
-
-    vagrant ssh allinone
-    # sudo gem install right_aws --no-ri --no-rdoc
-    sudo chef-client
 
 check if it worked
 ------------------
