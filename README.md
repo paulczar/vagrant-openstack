@@ -1,5 +1,5 @@
-Initial Chef Server
-===================
+Stand up Vagrant Boxes
+======================
 
 Chef Server
 -----------
