@@ -1,8 +1,8 @@
 Initial Chef Server
--------------------
+===================
 
 Chef Server
-===========
+-----------
 
     vagrant up chef
     vagrant ssh chef
@@ -12,7 +12,7 @@ Chef Server
         vagrant
 
 Chef Client
-===========
+-----------
 
     vagrant up allinone
     vagrant ssh allinone
@@ -24,10 +24,10 @@ Chef Client
 
 
 Openstack
----------
+=========
 
 Install Cookbooks
-=================
+-----------------
 
     sudo apt-get -y install git
     git submodule update --init --recursive git@github.com:opscode-cookbooks/chef-server.git
@@ -47,7 +47,7 @@ Install Cookbooks
     sudo chef-client
 
 check if it worked
-==================
+------------------
 
 https://chef
 username: admin
