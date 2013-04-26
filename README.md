@@ -1,11 +1,10 @@
 Stand up Vagrant Boxes
 ======================
 
-Make sure cookbook submodules are loaded
-----------------------------------------
+Clone recursively to get all openstack cookbooks
+------------------------------------------------
 
-    git submodule update --init --recursive git@github.com:opscode-cookbooks/chef-server.git
-
+`git clone --recursive git@github.com:paulczar/vagrant-openstack.git`  
 
 Chef Server
 -----------
