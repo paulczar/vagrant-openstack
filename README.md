@@ -29,7 +29,6 @@ Openstack
 Install Cookbooks
 -----------------
 
-    sudo apt-get -y install git
     git submodule update --init --recursive git@github.com:opscode-cookbooks/chef-server.git
 
     vagrant ssh chef
@@ -52,3 +51,8 @@ check if it worked
 https://chef
 username: admin
 password: secrete
+
+ToDo
+====
+
+* make install scripts idempotent
