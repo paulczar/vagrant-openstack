@@ -31,7 +31,7 @@ Chef Client
 Openstack
 =========
 
-Install Cookbooks
+Install Openstack
 -----------------
 
 vagrant ssh allinone
@@ -41,7 +41,7 @@ vagrant ssh allinone
 check if it worked
 ------------------
 
-https://chef
+https://33.33.33.60
 username: admin
 password: secrete
 
@@ -49,3 +49,4 @@ ToDo
 ====
 
 * make install scripts idempotent
+* creating instances in horizon fails ... work out why.
