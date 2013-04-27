@@ -35,7 +35,7 @@ Install Cookbooks
 -----------------
 
 vagrant ssh allinone
-extras/install_openstack.sh
+/vagrant/extras/install_openstack.sh
 
 
 check if it worked

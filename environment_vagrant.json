@@ -30,7 +30,7 @@
             "num_networks": "1",
             "network_size": "255",
             "bridge": "br100",
-            "bridge_dev": "eth0.100",
+            "bridge_dev": "eth2",
             "dns1": "8.8.8.8",
             "dns2": "8.8.4.4"
         },
@@ -40,7 +40,7 @@
             "num_networks": "1",
             "network_size": "255",
             "bridge": "br101",
-            "bridge_dev": "eth0.101",
+            "bridge_dev": "eth3",
             "dns1": "8.8.8.8",
             "dns2": "8.8.4.4"
         }
