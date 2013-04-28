@@ -7,3 +7,15 @@
 [submodule "chef-solo/chef-server"]
 	path = chef-solo/chef-server
 	url = git@github.com:opscode-cookbooks/chef-server.git
+[submodule "chef-logstash"]
+	path = chef-logstash
+	url = git@github.com:lusis/chef-logstash.git
+[submodule "other-cookbooks/logstash"]
+	path = other-cookbooks/logstash
+	url = git@github.com:lusis/chef-logstash.git
+[submodule "other-cookbooks/php"]
+	path = other-cookbooks/php
+	url = git@github.com:opscode-cookbooks/php.git
+[submodule "other-cookbooks/git"]
+	path = other-cookbooks/git
+	url = git@github.com:opscode-cookbooks/git.git

@@ -1,12 +1,15 @@
 #!/bin/bash -x
 
-echo 33.33.33.50 chef >> /etc/hosts
-apt-get -y install curl git links
-curl --silent -L http://www.opscode.com/chef/install.sh | bash
-mkdir -p /etc/chef
-cp /vagrant/.chef/chef-validator.pem /etc/chef/validation.pem
-mkdir -p /home/vagrant/.chef
-cp /vagrant/.chef/*.pem /home/vagrant/.chef/
+if [ ! -f /home/vagrant/.chef/knife.db ]
+then
+  echo "Preparing to install chef client..."
+  echo 33.33.33.50 chef >> /etc/hosts
+  apt-get -y install curl git links
+  curl --silent -L http://www.opscode.com/chef/install.sh | bash
+  mkdir -p /etc/chef
+  cp /vagrant/.chef/chef-validator.pem /etc/chef/validation.pem
+  mkdir -p /home/vagrant/.chef
+  cp /vagrant/.chef/*.pem /home/vagrant/.chef/
 
 cat<<CHEF > /etc/chef/client.rb
     log_level        :info
@@ -28,7 +31,11 @@ cache_type               'BasicFile'
 cache_options( :path => '/home/vagrant/.chef/checksums' )
 KNIFE
 
-chown vagrant. /vagrant/.chef/*
-chown vagrant. /home/vagrant/.chef/*
+  chown vagrant. /vagrant/.chef/*
+  chown vagrant. /home/vagrant/.chef/*
 
-chef-client
+  chef-client
+
+else 
+  echo "chef Client already installed!"
+fi

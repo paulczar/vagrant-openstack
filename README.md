@@ -45,8 +45,12 @@ https://33.33.33.60
 username: admin
 password: secrete
 
+Notes
+=====
+
+* provision scripts are stupidly idempotent ...  they assume if knife.rb exists that everything is rosy.
+
 ToDo
 ====
 
-* make install scripts idempotent
 * creating instances in horizon fails ... work out why.

@@ -4,7 +4,7 @@ Vagrant::Config.run do |config|
   #chef_config.vm.customize ["modifyvm", :id, "--cpus", 2]
   chef_config.vm.customize ["modifyvm", :id, "--memory", 1024]
   chef_config.vm.host_name = "chef"
-  chef_config.vm.box = "opscode-ubuntu-12.04"
+  chef_config.vm.box = "precise64"
   chef_config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-12.04.box"
   chef_config.vm.network :hostonly, "33.33.33.50"
   chef_config.ssh.max_tries = 40
@@ -15,9 +15,9 @@ Vagrant::Config.run do |config|
  end
  config.vm.define :allinone do |allinone_config|
   allinone_config.vm.host_name = "allinone"
-  #allinone_config.vm.customize ["modifyvm", :id, "--cpus", 2]
-  allinone_config.vm.customize ["modifyvm", :id, "--memory", 2048]
-  allinone_config.vm.box = "opscode-ubuntu-12.04"
+  allinone_config.vm.customize ["modifyvm", :id, "--cpus", 2]
+  allinone_config.vm.customize ["modifyvm", :id, "--memory", 4096]
+  allinone_config.vm.box = "precise64"
   allinone_config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-12.04.box"
 
   allinone_config.vm.network :hostonly, "33.33.33.60"
