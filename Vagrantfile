@@ -14,6 +14,21 @@ Vagrant::Config.run do |config|
     chef_config.vm.provision :shell, :path => "extras/install_chef_server.sh"
   end
 
+  config.vm.define :chef_zero do |chef_zero_config|
+    # TODO REMOVE THIS WHEN WE FORCE SMP MODE IN ERCHEF
+    #chef_config.vm.customize ["modifyvm", :id, "--cpus", 2]
+    #chef_zero_config.vm.customize ["modifyvm", :id, "--memory", 512]
+    chef_zero_config.vm.host_name = "chef"
+    chef_zero_config.vm.box = "precise64"
+    chef_zero_config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-12.04.box"
+    chef_zero_config.vm.network :hostonly, "33.33.33.50"
+    chef_zero_config.ssh.max_tries = 40
+    chef_zero_config.ssh.timeout   = 120
+    chef_zero_config.ssh.forward_agent = true
+    chef_zero_config.vm.provision :shell, :path => "extras/install_chef_zero.sh"
+  end
+
+
   config.vm.define :allinone do |allinone_config|
     allinone_config.vm.host_name = "allinone"
     allinone_config.vm.customize ["modifyvm", :id, "--cpus", 2]
