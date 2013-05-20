@@ -13,8 +13,8 @@ then
   mkdir -p /home/vagrant/.chef
   sudo cp /etc/chef-server/admin.pem /home/vagrant/.chef/
   sudo cp /etc/chef-server/chef-validator.pem /home/vagrant/.chef/
-  mkdir -p /vagrant/.chef
-  cp /home/vagrant/.chef/* /vagrant/.chef/
+  mkdir -p /vagrant/chef
+  cp /home/vagrant/.chef/* /vagrant/chef/
 
 cat<<KNIFE > /home/vagrant/.chef/knife.rb
 log_level                :info
@@ -28,17 +28,17 @@ cache_type               'BasicFile'
 cache_options( :path => '/home/vagrant/.chef/checksums' )
 KNIFE
 
-  chown vagrant. /vagrant/.chef/*
+  chown vagrant. /vagrant/chef/*
   chown vagrant. /home/vagrant/.chef/*
 
   echo "Chef server installed!!\nNow let us configure up the cookbooks."
   cd /vagrant/chef-cookbooks
-  knife cookbook upload -o cookbooks --all
-  knife role from file roles/*.rb
-  knife environment from file /vagrant/extras/environment_vagrant.json
-  knife node from file /vagrant/extras/allinone_node.json
-  knife node from file /vagrant/extras/single_controller_node.json
-  knife node from file /vagrant/extras/single_compute_node.json
+  knife cookbook upload --config /home/vagrant/.chef/knife.rb -o cookbooks --all 
+  knife role from file roles/*.rb --config /home/vagrant/.chef/knife.rb 
+  knife environment from file /vagrant/extras/environment_quantum.json --config /home/vagrant/.chef/knife.rb 
+  knife node from file /vagrant/extras/allinone_node.json --config /home/vagrant/.chef/knife.rb 
+  knife node from file /vagrant/extras/single_controller_node.json --config /home/vagrant/.chef/knife.rb 
+  knife node from file /vagrant/extras/single_compute_node.json --config /home/vagrant/.chef/knife.rb 
 
 
 else 

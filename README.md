@@ -8,6 +8,16 @@ This is an attempt to make a simple to install openstack cluster for testing and
 
 I chose to use the rcbops (rackspace) recipes for this as they ship some excellent roles which makes it very easy to use.
 
+Notes on Quantum
+----------------
+
+boy what a mess.   had to install a bunch of packages ( this might help - https://github.com/att-cloud/cookbook-openvswitch ) in the
+install_chef_client.sh script.   this'll only work right now in the allinone type.   once up I had to run manual commands to create network etc
+under quantum.  see this gist - https://gist.github.com/paulczar/5610433
+
+was able to launch 2 cirros instances on the created network and they could ping eachother.  a start i guess.
+
+
 Download Project
 ----------------
 
@@ -44,6 +54,8 @@ _this will take quite some time..._
 
 Option 2:  Seperate Controller and Compute Openstack nodes
 -----------------------------------------------------------
+
+_will not work currently_
 
     vagrant up single_controller
     vagrant up single_compute

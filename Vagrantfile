@@ -21,8 +21,8 @@ Vagrant::Config.run do |config|
     allinone_config.vm.box = "precise64"
     allinone_config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-12.04.box"
     allinone_config.vm.network :hostonly, "33.33.33.60"
-    allinone_config.vm.network :hostonly, "10.10.100.60"
-    allinone_config.vm.network :hostonly, "172.16.101.60"
+    allinone_config.vm.network :hostonly, "10.10.100.1"
+    allinone_config.vm.network :hostonly, "172.16.101.1"
     allinone_config.vm.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
     allinone_config.vm.customize ["modifyvm", :id, "--nicpromisc4", "allow-all"]
     allinone_config.ssh.max_tries = 40

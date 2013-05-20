@@ -1,5 +1,5 @@
 {
-  "name": "vagrant",
+  "name": "quantum",
   "description": "vagrant for openstack environment",
   "cookbook_versions": {
   },
@@ -19,7 +19,7 @@
     },
     "quantum" : {
       "external_interface": "eth2"
-    }
+    },
     "nova": {
       "ratelimit" : {
         "api" : { "enabled" : true },
