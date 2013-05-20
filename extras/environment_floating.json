@@ -1,5 +1,5 @@
 {
-  "name": "vagrant",
+  "name": "floating",
   "description": "vagrant for openstack environment",
   "cookbook_versions": {
   },
@@ -10,12 +10,12 @@
   "override_attributes": {
     "developer_mode": false,
     "monitoring" : {
-      "metric_provider" : "collectd",
-      "procmon_provider" : "monit"
+      "metric_provider" : "none",
+      "procmon_provider" : "none"
     },
     "glance": {
       "image_upload": true,
-      "images": ["cirros", "precise"]
+      "images": ["cirros"]
     },
     "nova": {
       "ratelimit" : {
@@ -23,17 +23,13 @@
         "volume" : { "enabled" : true }
       },
       "libvirt": { "virt_type": "qemu" },
+      "network": {
+        "public_interface": "eth2",
+        "floating_pool_name": "public",
+        "floating": { "ipv4_cidr": "10.10.100.0/24" },
+        "force_dhcp_release": true
+      },
       "networks": [
-        {
-            "label": "public",
-            "ipv4_cidr": "10.10.100.0/24",
-            "num_networks": "1",
-            "network_size": "255",
-            "bridge": "br100",
-            "bridge_dev": "eth2",
-            "dns1": "8.8.8.8",
-            "dns2": "8.8.4.4"
-        },
         {
             "label": "private",
             "ipv4_cidr": "172.16.101.0/24",
