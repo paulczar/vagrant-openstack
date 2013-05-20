@@ -1,5 +1,5 @@
 {
-  "name": "vagrant",
+  "name": "basic",
   "description": "vagrant for openstack environment",
   "cookbook_versions": {
   },
@@ -10,12 +10,12 @@
   "override_attributes": {
     "developer_mode": false,
     "monitoring" : {
-      "metric_provider" : "collectd",
-      "procmon_provider" : "monit"
+      "metric_provider" : "none",
+      "procmon_provider" : "none"
     },
     "glance": {
       "image_upload": true,
-      "images": ["cirros", "precise"]
+      "images": ["cirros"]
     },
     "nova": {
       "ratelimit" : {
