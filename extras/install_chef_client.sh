@@ -31,8 +31,8 @@ cache_type               'BasicFile'
 cache_options( :path => '/home/vagrant/.chef/checksums' )
 KNIFE
 
-  chown vagrant. /vagrant/.chef/*
-  chown vagrant. /home/vagrant/.chef/*
+  chown vagrant /vagrant/.chef/*
+  chown vagrant /home/vagrant/.chef/*
 
 # multiple runs just to be sure, had some weird issues on first run.
 # seems to help clear up some weirdness where it tries to launch instances 
