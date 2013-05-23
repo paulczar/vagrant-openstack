@@ -28,8 +28,8 @@ cache_type               'BasicFile'
 cache_options( :path => '/home/vagrant/.chef/checksums' )
 KNIFE
 
-  chown vagrant. /vagrant/.chef/*
-  chown vagrant. /home/vagrant/.chef/*
+  chown vagrant /vagrant/.chef/*
+  chown vagrant /home/vagrant/.chef/*
 
   echo "Chef server installed!!\nNow let us configure up the cookbooks."
   cd /vagrant/chef-cookbooks
