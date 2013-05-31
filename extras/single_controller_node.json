@@ -1,6 +1,6 @@
 {
   "name": "single-controller",
-  "chef_environment": "vagrant",
+  "chef_environment": "basic",
   "normal": {
     "tags": [
 

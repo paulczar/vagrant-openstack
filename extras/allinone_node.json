@@ -1,6 +1,6 @@
 {
   "name": "allinone",
-  "chef_environment": "vagrant",
+  "chef_environment": "basic",
   "normal": {
     "tags": [
 

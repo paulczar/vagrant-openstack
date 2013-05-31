@@ -1,6 +1,6 @@
 {
   "name": "single-compute",
-  "chef_environment": "vagrant",
+  "chef_environment": "basic",
   "normal": {
     "tags": [
 

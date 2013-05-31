@@ -10,32 +10,29 @@ then
   dpkg -i chef-server*.deb
   chef-server-ctl reconfigure
 
-  mkdir -p /home/vagrant/.chef
-  sudo cp /etc/chef-server/admin.pem /home/vagrant/.chef/
-  sudo cp /etc/chef-server/chef-validator.pem /home/vagrant/.chef/
   mkdir -p /vagrant/.chef
-  cp /home/vagrant/.chef/* /vagrant/.chef/
+  cp /etc/chef-server/admin.pem /vagrant/.chef/
+  cp /etc/chef-server/chef-validator.pem /vagrant/.chef/
 
-cat<<KNIFE > /home/vagrant/.chef/knife.rb
+cat<<KNIFE > /vagrant/.chef/knife.rb
 log_level                :info
 log_location             STDOUT
 node_name                'admin'
-client_key               '/home/vagrant/.chef/admin.pem'
+client_key               '/vagrant/.chef/admin.pem'
 validation_client_name   'chef-validator'
-validation_key           '.chef/chef-validator.pem'
+validation_key           '/vagrant/.chef/chef-validator.pem'
 chef_server_url          'https://chef'
 cache_type               'BasicFile'
 cache_options( :path => '/home/vagrant/.chef/checksums' )
 KNIFE
 
   chown vagrant /vagrant/.chef/*
-  chown vagrant /home/vagrant/.chef/*
 
   echo "Chef server installed!!\nNow let us configure up the cookbooks."
   cd /vagrant/chef-cookbooks
   knife cookbook upload -o cookbooks --all
   knife role from file roles/*.rb
-  knife environment from file /vagrant/extras/environment_vagrant.json
+  knife environment from file /vagrant/extras/environment_basic.json
   knife node from file /vagrant/extras/allinone_node.json
   knife node from file /vagrant/extras/single_controller_node.json
   knife node from file /vagrant/extras/single_compute_node.json
